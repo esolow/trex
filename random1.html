@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Get Text Input Field Value in JavaScript</title>
+<style>
+    .designer{
+        text-align: center;
+        border: 7px solid red;  
+        width: 300px;  
+        height: 200px;  
+        padding-top: 100px; 
+    }
+    .centerer{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="centerer">
+        <input type="text" placeholder="Enter your path" onblur="getFilePathExtension()" id="myInput">
+        <button type="button" onclick="getFilePathExtension();">Get Value</button>
+    </div>
+    <script>
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var inputVal = document.getElementById("myInput").value;
+            
+            // Displaying the value
+            alert(inputVal);
+        }
+        function getFilePathExtension(inputVal) {
+            var inputVal = document.getElementById("myInput").value;
+            var filename = inputVal.split('\\').pop().split('/').pop();
+            var lastIndex = filename.lastIndexOf(".");
+            if (lastIndex < 1) return "";
+            var outputVal = filename.substr(lastIndex + 1);
+            alert(outputVal)            
+        }
+
+    
+    </script>
+</body>
+</html>
